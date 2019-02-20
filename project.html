@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+  <title>Capstone Management System</title>
+
+  <link href="css/reset.css" rel="stylesheet" type="text/css">
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <link href="css/nav.css" rel="stylesheet" type="text/css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="js/nav.js"></script>
+
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <section class="navigation">
+    <div class="nav-container">
+      <div class="brand">
+        <img src="images/ksu_logo.png" id="logo" />
+      </div>
+      <nav>
+        <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+        <ul class="nav-list">
+          <li><a href="#!" id="nav-home">Projects</a></li><!-- add link to home page here -->
+          <li><a href="#!">Create</a></li><!-- add link to create project page here -->
+          <li><a href="#!">Upload</a></li><!-- add link to upload page here STUDENTS ONLY -->
+          <li><a href="#!">Account</a><!-- add link to user's account page here -->
+            <ul class="nav-dropdown">
+              <li><a href="#!">Log In</a></li><!-- add link to login page here -->
+              <li><a href="#!">Sign Up</a></li><!-- add link to sign up page here -->
+              <li><a href="#!">Admin</a></li><!-- add link to login page here -->
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </section>
+
+  <!-- HEADER -->
+  <section class="header">
+    <h1 id="cms">Capstone Management System</h1>
+    <h3 id="dept">Kennesaw State University Department of Information
+      Technology </h3>
+  </section>
+
+  <!-- MAIN -->
+  <section class="prjmain">
+    <div>
+		<!-- The following should be pulled from the uploaded spreadsheet -->
+		<h2 style="text-align: center;">Project 1 Title</h2>
+		<p><b>Sponsor Name: </b></p>
+		<br>
+		<p><b>Description of Project:</b></p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget pretium ipsum, ut vestibulum magna. Aliquam facilisis odio vel tortor ultrices rutrum. Donec porta id mauris in posuere. Nulla varius at velit et vehicula. Sed sit amet lobortis sapien. Donec consequat urna quam. Phasellus mattis lectus ornare finibus pretium. Etiam tempus, ante porttitor consectetur aliquet, lectus nulla finibus diam, quis lobortis ante nunc eu mauris.</p>
+		<br>
+		<p>Nunc nisl tellus, viverra nec nunc ut, laoreet feugiat orci. Maecenas eleifend nisi non lobortis pharetra. Etiam sed dolor eu lorem facilisis placerat. Proin in eros ac ante cursus congue. Donec vehicula, purus blandit iaculis egestas, dui diam mollis tortor, et placerat lacus mi ut purus. Nulla fringilla mattis tincidunt. Sed viverra massa quis mi suscipit, eget dignissim magna tincidunt.</p>
+		<br>
+		<p><b>Technical Skills &amp; Requirements:</b></p>
+		<ul>
+			<li>Example 1</li>
+			<li>Example 2</li>
+			<li>Example 3</li>
+			<li>Example 4</li>
+		</ul>
+		<br>
+		<p><b>Duties of the Students:</b></p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget pretium ipsum, ut vestibulum magna. Aliquam facilisis odio vel tortor ultrices rutrum. Donec porta id mauris in posuere. Nulla varius at velit et vehicula. Sed sit amet lobortis sapien. Donec consequat urna quam. Phasellus mattis lectus ornare finibus pretium. Etiam tempus, ante porttitor consectetur aliquet, lectus nulla finibus diam, quis lobortis ante nunc eu mauris.</p>
+		<br>
+		<p><b>Benefits of Project:</b></p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget pretium ipsum, ut vestibulum magna. Aliquam facilisis odio vel tortor ultrices rutrum. Donec porta id mauris in posuere. Nulla varius at velit et vehicula. Sed sit amet lobortis sapien. Donec consequat urna quam. Phasellus mattis lectus ornare finibus pretium.</p>
+		<br>
+		<p><b>Offered Company Resources:</b></p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget pretium ipsum, ut vestibulum magna. Aliquam facilisis odio vel tortor ultrices rutrum. Donec porta id mauris in posuere. Nulla varius at velit et vehicula. Sed sit amet lobortis sapien. Donec consequat urna quam. Phasellus mattis lectus ornare finibus pretium.</p>
+		<br>
+		<p><b>Project Status:</b></p>
+		<input type="radio" >
+		<label>On Track</label>
+		<br>
+		<input type="radio" >
+		<label>Not On Track</label>
+		<br>
+		<input type="radio" >
+		<label>In Progress</label>
+		<br>
+		<br>
+		<button>Update</button> <!-- add script to update project status here -->
+		<br>
+		<br>
+		<p><b>Weekly Summary:</b></p>
+		<textarea class="textbox" rows="4" cols="50"></textarea>
+	  	<br>
+      	<button>Submit</button> <!-- add script to submit weekly report here -->
+		<br>
+		<br>
+		<p><b>Upload File:</b></p>
+		<br>
+		<button>Choose File</button> <!-- add script to choose local file here -->
+									 <!-- https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_fileupload_create -->
+		<button>Upload</button> <!-- add script to upload local file to database here -->
+	</div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="footer">
+    <p>© 2019 Kennesaw State University. All Rights Reserved.</p>
+  </section>
+
+</body>
+
+</html>
