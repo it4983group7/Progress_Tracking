@@ -11,38 +11,22 @@
 
   <link href="css/reset.css" rel="stylesheet" type="text/css">
   <link href="css/style.css" rel="stylesheet" type="text/css">
-  <link href="css/nav.css" rel="stylesheet" type="text/css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="js/nav.js"></script>
 
 </head>
 
 <body>
 
   <!-- NAVIGATION -->
-  <section class="navigation">
-    <div class="nav-container">
-      <div class="brand">
-        <img src="images/ksu_logo.png" id="logo" />
-      </div>
-      <nav>
-        <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
-        <ul class="nav-list">
-          <li><a href="#!" id="nav-home">Projects</a></li><!-- add link to home page here -->
-          <li><a href="#!">Create</a></li><!-- add link to _______ page here -->
-          <li><a href="#!">Upload</a></li><!-- add link to upload page here STUDENTS ONLY -->
-          <li><a href="#!">Account</a><!-- add link to user's account page here -->
-            <ul class="nav-dropdown">
-              <li><a href="#!">Log In</a></li><!-- add link to login page here -->
-              <li><a href="#!">Sign Up</a></li><!-- add link to sign up page here -->
-              <li><a href="#!">Admin</a></li><!-- add link to login page here -->
-            </ul>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </section>
+  <div id="nav-placeholder">
+
+  </div>
+  <script>
+    $(function() {
+      $("#nav-placeholder").load("nav.html");
+    });
+  </script>
 
   <!-- HEADER -->
   <section class="header">
