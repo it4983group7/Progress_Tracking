@@ -1,0 +1,13 @@
+.footer {
+    display: flex;
+    align-items: center;
+    height: 100px;
+    padding: 40px;
+    background-color: black;
+  }
+  
+  .footer>p {
+    color: white;
+    width: 100%;
+    text-align: center;
+  }

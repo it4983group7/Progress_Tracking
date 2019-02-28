@@ -180,20 +180,6 @@ label {
   font-size: 1.2em;
 }
 
-.footer {
-  display: flex;
-  align-items: center;
-  height: 100px;
-  padding: 40px;
-  background-color: black;
-}
-
-.footer>p {
-  color: white;
-  width: 100%;
-  text-align: center;
-}
-
 .gallery .tag {
 	color: #000000;
 	padding-bottom: 4px;
@@ -226,3 +212,4 @@ label {
     padding: 20px 50px;
   }
 }
+

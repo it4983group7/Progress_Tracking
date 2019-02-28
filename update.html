@@ -24,8 +24,17 @@
             $("#nav-placeholder").load("nav.html");
         });
     </script>
+    <div class="main">
+        <form action="php/update.php" method="POST">
+            Sponsor ID: <input type="text" name="sponsor-id"><br>
+            Date: <input type="date" name="date"><br>
+            Progress: <input type="text" name="progress"><br>
+            Responsiveness: <input type="text" name="responsiveness"><br>
+            Feedback: <input type="text" name="feedback"><br>
+            <input type="submit">
+        </form>
+    </div>
 
-    <h1>UPLOAD EXCEL FILES HERE</h1>
     <!-- FOOTER -->
     <div id="foot-placeholder">
 
