@@ -1,6 +1,6 @@
 <?php
-$servername = "localhost";
-$username = "web";
+$servername = 'localhost';
+$username = 'web';
 $password = 'Capst0n3!';
 $dbname = 'CAPSTONE';
 
