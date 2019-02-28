@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "web";
-$password = 'password';
+$password = 'Capst0n3!';
 $dbname = 'CAPSTONE';
 
 // Create connection
