@@ -4,7 +4,7 @@ $username = 'web';
 $password = 'Capst0n3!';
 $dbname = 'CAPSTONE';
 
-try {
+
     $conn = new mysqli($servername, $username, $password, $dbname);
 
     // Create connection
@@ -23,11 +23,7 @@ try {
     $sql = "INSERT INTO Sponsor_Update(Sponsor_Update_ID, Sponsor_ID, Date, Progress, Responsiveness, Feedback) VALUES ($sponsor_update_id, $sponsor_id, $date, $progress, $responsiveness, $feedback)";
     
     $conn->exec($sql);
-    echo "New record created successfully";
-}
-catch(Exception $e) {
-    echo $e->getMessage();
-}
+    echo "Sponsor Update ID: " . $sponsor_update_id . "<br>Sponsor ID: " . $sponsor_id;
 
 $conn->close();
 ?>
