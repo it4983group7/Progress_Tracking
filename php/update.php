@@ -15,15 +15,16 @@ $dbname = 'capstone';
     
     $sponsor_update_id = $_POST["sponsor-update-id"];
     $sponsor_id = $_POST["sponsor-id"];
+    $project_id = $_POST["project-id"];
     $date = $_POST["date"];
     $progress = $_POST["progress"];
     $responsiveness = $_POST["responsiveness"];
     $feedback = $_POST["feedback"];
     
-    $sql = "INSERT INTO Sponsor_Update(Sponsor_Update_ID, Sponsor_ID, Date, Progress, Responsiveness, Feedback) VALUES ($sponsor_update_id, $sponsor_id, $date, $progress, $responsiveness, $feedback)";
+    $sql = "INSERT INTO Sponsor_Update(Sponsor_Update_ID, Sponsor_ID, Project_ID, Progress, Responsiveness, Feedback) VALUES ($sponsor_update_id, $sponsor_id, $project_id, $progress, $responsiveness, $feedback)";
     
     $conn->exec($sql);
-    echo "Sponsor Update ID: " . $sponsor_update_id . "<br>Sponsor ID: " . $sponsor_id;
+    echo $sql;
 
 $conn->close();
 ?>
