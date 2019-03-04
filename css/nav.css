@@ -176,3 +176,8 @@ nav ul li ul li a {
 #nav-toggle.active span:after {
   transform: rotate(-45deg);
 }
+
+#logo {
+  float: left;
+  height: 70px;
+}
