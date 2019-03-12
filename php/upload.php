@@ -59,7 +59,7 @@ function processData($target_file)
         $pro_desc = null;
         $pro_skill_req = null;
         $pro_duty = null;
-        $pro_ben_stu = null;
+        $pro_stu_ben = null;
         $pro_resource = null;
 
         foreach ($subArr as $j => $jval) {
@@ -88,7 +88,7 @@ function processData($target_file)
                 } elseif ($j == 'G') {
                     $pro_duty = $subArr[$j];
                 } elseif ($j == 'H') {
-                    $pro_ben_stu = $subArr[$j];
+                    $pro_stu_ben = $subArr[$j];
                 } elseif ($j == 'I') {
                     $pro_resource = $subArr[$j];
                 }
@@ -103,10 +103,10 @@ function processData($target_file)
             // echo "<br>Description: " . $pro_desc;
             // echo "<br>Skills Required: " . $pro_skill_req;
             // echo "<br>Duties: " . $pro_duty;
-            // echo "<br>Students Benefits: " . $pro_ben_stu;
+            // echo "<br>Students Benefits: " . $pro_stu_ben;
             // echo "<br>Resources: " . $pro_resource;
 
-            $sql = "INSERT INTO Project(Project_ID, Term, Year, Project_No, Title, Description, Student_Skills, Student_Duties, Student_Benefits, Resources) VALUES (\"$project_id\", \"$term\", $year, \"$pro_number\", \"$pro_title\", \"$pro_desc\", \"$pro_skill_req\", \"$pro_duty\", \"$pro_ben_stu\", \"$pro_resource\");";
+            $sql = "INSERT INTO Project(Project_ID, Term, Year, Project_No, Title, Description, Student_Skills, Student_Duties, Student_Benefits, Resources) VALUES (\"$project_id\", \"$term\", $year, \"$pro_number\", \"$pro_title\", \"$pro_desc\", \"$pro_skill_req\", \"$pro_duty\", \"$pro_stu_ben\", \"$pro_resource\");";
             connectDB($sql);
         }
         $check = 0;
