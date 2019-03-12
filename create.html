@@ -25,11 +25,14 @@
         });
     </script>
 
-    <form action="/php/upload.php" method="POST" enctype="multipart/form-data">
-        Select file to upload:
-        <input type="file" name="fileToUpload" id="fileToUpload">
-        <input type="submit" value="Upload File" name="submit">
-    </form>
+    <!-- Upload form -->
+    <section class="main">
+        <form action="/php/upload.php" method="POST" enctype="multipart/form-data">
+            Select file to upload:
+            <input type="file" name="fileToUpload" id="fileToUpload">
+            <input type="submit" value="Upload File" name="submit">
+        </form>
+    </section>
 
     <!-- FOOTER -->
     <div id="foot-placeholder">
