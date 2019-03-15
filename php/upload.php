@@ -28,8 +28,8 @@ if ($uploadOk == 0) {
 
         processData($target_file);
 
-        // echo "<br>The file " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded.";
-        header('Location: '.'../upload_success.html');
+        // header('Location: '.'../upload_success.html');
+        header('Location: '.'upload_success.php');
         die();
     } else {
         echo "<br>Sorry, there was an error uploading your file.";
