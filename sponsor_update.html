@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Capstone Management System</title>
 
-	<link rel="shortcut icon" type="image/ico" href="/ksu_logo.ico">
+    <link rel="shortcut icon" type="image/ico" href="/ksu_logo.ico">
     <link href="css/reset.css" rel="stylesheet" type="text/css">
     <link href="css/style.css" rel="stylesheet" type="text/css">
 
@@ -16,6 +16,12 @@
 </head>
 
 <body>
+    <?php
+    include 'php/dbconfig.php';
+    $sql = "SELECT Project_ID, Title FROM Project;";
+    echo "I worked!<br><br><br>";
+    $project_title = mysql_query($sql, $conn);
+    ?>
     <!-- NAVIGATION -->
     <div id="nav-placeholder">
 
@@ -27,6 +33,14 @@
     </script>
     <div class="main">
         <form action="php/sponsor_update.php" method="POST">
+            <select name="project">
+                <option>Select Project</option>
+                <?php while($results = mysql_fetch_array($project_title)){?>
+                    <option value="<?php echo $results['Title'];?>"><?php echo $results['Title'];?>
+
+                    </option>
+                    <?php }?>
+            </select>
             <!-- Sponsor Update ID (remove): <input type="text" name="sponsor-update-id"><br> -->
             Sponsor ID: <input type="text" name="sponsor-id"><br>
             Project ID: <input type="text" name="project-id"><br>

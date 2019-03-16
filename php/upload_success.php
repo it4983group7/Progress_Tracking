@@ -4,13 +4,14 @@ echo file_get_contents("../nav.html");
 
 confirmed();
 
-$servername = 'localhost';
-$username = 'web';
-$password = 'Capst0n3!';
-$dbname = 'capstone';
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+// $servername = 'localhost';
+// $username = 'web';
+// $password = 'Capst0n3!';
+// $dbname = 'capstone';
+include 'dbconfig.php';
+// // Create connection
+// $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
