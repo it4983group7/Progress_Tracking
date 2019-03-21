@@ -40,7 +40,7 @@
                     <option value="<?php echo $results['Project_ID'];?>"><?php echo $results['Title'];?>
                     </option>
                     <?php }?>
-            </select>
+            </select><br>
             <!-- Sponsor Update ID (remove): <input type="text" name="sponsor-update-id"><br> -->
             Sponsor ID: <input type="text" name="sponsor-id"><br>
             <!-- Project ID: <input type="text" name="project-id"><br> -->
