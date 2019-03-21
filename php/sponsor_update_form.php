@@ -25,7 +25,7 @@ $responsiveness = $_POST["responsiveness"];
 $feedback = $_POST["feedback"];
 
 $sql = "INSERT INTO Sponsor_Update(Sponsor_Update_ID, Sponsor_ID, Project_ID, Date, Progress, Responsiveness, Feedback) VALUES ($sponsor_update_id, $sponsor_id, $project_id, \"$date\", $progress, $responsiveness, \"$feedback\")";
-
+echo $sql.'<br>';
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
 } else {

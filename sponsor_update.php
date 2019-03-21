@@ -19,9 +19,9 @@
     <?php
     include 'php/dbconfig.php';
     $sql = "SELECT Project_ID, Title FROM Project;";
-    <!-- echo "I worked!<br><br><br>"; -->
-    $project_title = mysql_query($sql, $conn);
+    $project_title = mysqli_query($conn,$sql);
     ?>
+
     <!-- NAVIGATION -->
     <div id="nav-placeholder">
 
@@ -31,19 +31,19 @@
             $("#nav-placeholder").load("nav.html");
         });
     </script>
+
     <div class="main">
         <form action="php/sponsor_update_form.php" method="POST">
-            <select name="project">
+            <select name="project-id" id="project-list">
                 <option>Select Project</option>
-                <?php while($results = mysql_fetch_array($project_title)){?>
-                    <option value="<?php echo $results['Title'];?>"><?php echo $results['Title'];?>
-
+                <?php while($results = mysqli_fetch_array($project_title)){?>
+                    <option value="<?php echo $results['Project_ID'];?>"><?php echo $results['Title'];?>
                     </option>
                     <?php }?>
             </select>
             <!-- Sponsor Update ID (remove): <input type="text" name="sponsor-update-id"><br> -->
             Sponsor ID: <input type="text" name="sponsor-id"><br>
-            Project ID: <input type="text" name="project-id"><br>
+            <!-- Project ID: <input type="text" name="project-id"><br> -->
             <!-- Date: <input type="date" name="date"><br> -->
             Progress int: <input type="text" name="progress"><br>
             Responsiveness int: <input type="text" name="responsiveness"><br>
