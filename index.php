@@ -13,13 +13,16 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-</head><?php
-      include 'index.php';
-      $projectName= "SELECT Title FROM project";
-      ?>
+</head>
 
 <body>
 
+<?php
+   include 'php/dbconfig.php';
+      $projectName= "SELECT Project_ID, Title FROM project";
+	  $projectTitle = mysqli_query($conn, $projectName);
+	  
+      ?>
   <!-- NAVIGATION -->
   <div id="nav-placeholder">
 
@@ -42,8 +45,16 @@
     <div style="text-align: center;">
 
       <div class="gallery">
+	  <div class="thumbnailOT">
+	  <?php while($results = mysqli_fetch_array($projectTitle)){?> 
+                   <h4> <?php echo $results['Project_ID'];?>
+					<?php echo $results['Title'];?></h4>
+                    <?php echo "Status: ";?><br>
+					<?php echo "More Information";?>
+                    <?php }?>
+</div>
         <div class="thumbnailOT">
-          <h4>Project 1 Title</h4>
+          <?php echo "<h4>Project 1 Title</h4>" ?>
           <p class="tag">Status: On Track</p>
           <p class="tag">More Information</p> <!-- add link to project page here -->
         </div>
