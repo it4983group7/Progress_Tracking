@@ -1,8 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Capstone Management System</title>
+
+  <link href="css/reset.css" rel="stylesheet" type="text/css">
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+
 <body>
 
 <?php
    include 'php/dbconfig.php';
-      $projectName= "SELECT Project_ID, Title FROM project";
+      $projectName= "SELECT project.Project_ID, project.Title, sponsor_update.Progress FROM project INNER JOIN sponsor_update ON project.Project_ID=sponsor_update.Project_ID";
 	  $projectTitle = mysqli_query($conn, $projectName);
 	  $projectStatus = "SELECT Sponsor_Update_ID, Progress FROM sponsor_update";
 	  $projectProgress = mysqli_query($conn, $projectStatus);
@@ -31,10 +48,10 @@
 
       <div class="gallery">
 	  <div class="thumbnailOT">
-	  <?php while(($results = mysqli_fetch_array($projectTitle)) && ($status = mysqli_fetch_array($projectProgress)){?> 
+	  <?php while(($results = mysqli_fetch_array($projectTitle))){?> 
                    <h4> <?php echo $results['Project_ID'];?>
 					<?php echo $results['Title'];?></h4>
-                    <?php echo "Status: " $status['Progress'];?><br>
+                    <?php echo $results['Progress'];?><br>
 					<?php echo "More Information";?>
                     <?php }?>
 </div>
