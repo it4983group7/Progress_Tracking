@@ -19,8 +19,10 @@
 
 <?php
    include 'php/dbconfig.php';
-      $projectName= "SELECT Project_ID, Title FROM project";
+      $projectName= "SELECT project.Project_ID, project.Title, sponsor_update.Progress FROM project INNER JOIN sponsor_update ON project.Project_ID=sponsor_update.Project_ID";
 	  $projectTitle = mysqli_query($conn, $projectName);
+	  $projectStatus = "SELECT Sponsor_Update_ID, Progress FROM sponsor_update";
+	  $projectProgress = mysqli_query($conn, $projectStatus);
 	  
       ?>
   <!-- NAVIGATION -->
@@ -46,10 +48,10 @@
 
       <div class="gallery">
 	  <div class="thumbnailOT">
-	  <?php while($results = mysqli_fetch_array($projectTitle)){?> 
+	  <?php while(($results = mysqli_fetch_array($projectTitle))){?> 
                    <h4> <?php echo $results['Project_ID'];?>
 					<?php echo $results['Title'];?></h4>
-                    <?php echo "Status: ";?><br>
+                    <?php echo $results['Progress'];?><br>
 					<?php echo "More Information";?>
                     <?php }?>
 </div>
