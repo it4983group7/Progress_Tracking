@@ -48,7 +48,7 @@ jobs:
       - git fetch origin master:master
       - git fetch origin --tags
       - php sami.phar update .sami.php
-      - echo '<html><head><meta http-equiv="Refresh" content="0; url=master/"></head><body><p>If you are not automatically redirected, please go to <a href="master/">the latest stable API documentation</a>.</p></body></html>' > build/index.html
+      - echo '<html><head><meta http-equiv="Refresh" content="0; url=master/"></head><body><p>If you are not automatically redirected, please go to <a href="master/">the latest stable API documentation</a>.</p></body></html>' > build/index.php
       deploy:
         provider: pages
         skip-cleanup: true

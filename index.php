@@ -8,6 +8,7 @@
 
   <title>Capstone Management System</title>
 
+  <link rel="shortcut icon" type="image/ico" href="/ksu_logo.ico">
   <link href="css/reset.css" rel="stylesheet" type="text/css">
   <link href="css/style.css" rel="stylesheet" type="text/css">
 
@@ -17,20 +18,23 @@
 
 <body>
 
-<?php
-   include 'php/dbconfig.php';
-      $projectName= "SELECT project.Project_ID, project.Title, sponsor_update.Progress FROM project INNER JOIN sponsor_update ON project.Project_ID=sponsor_update.Project_ID";
-	  $projectTitle = mysqli_query($conn, $projectName);
-	  $projectStatus = "SELECT Sponsor_Update_ID, Progress FROM sponsor_update";
-	  $projectProgress = mysqli_query($conn, $projectStatus);
-	  
-      ?>
+  <?php
+  include 'php/dbconfig.php';
+  $projectName = "SELECT project.Project_ID, project.Title, sponsor_update.Progress FROM project INNER JOIN sponsor_update ON project.Project_ID=sponsor_update.Project_ID";
+
+  $sql = "SELECT Project.Year, Project.Project_No, Project.Project_ID, Project.Title, Sponsor_Update.Progress, Sponsor_Update.Feedback FROM Project LEFT JOIN Sponsor_Update ON Project.Project_ID=Sponsor_Update.Project_ID AND Sponsor_Update.Sponsor_Update_ID IN (SELECT MAX(Sponsor_Update_ID) FROM Sponsor_Update GROUP BY Sponsor_Update_ID AND Project.Project_ID=Sponsor_Update.Project_ID);";
+
+  $projects = mysqli_query($conn, $sql);
+  $projectStatus = "SELECT Sponsor_Update_ID, Progress FROM sponsor_update";
+  $projectProgress = mysqli_query($conn, $projectStatus);
+
+  ?>
   <!-- NAVIGATION -->
   <div id="nav-placeholder">
 
   </div>
   <script>
-    $(function () {
+    $(function() {
       $("#nav-placeholder").load("nav.html");
     });
   </script>
@@ -47,128 +51,28 @@
     <div style="text-align: center;">
 
       <div class="gallery">
-	  <div class="thumbnailOT">
-	  <?php while(($results = mysqli_fetch_array($projectTitle))){?> 
-                   <h4> <?php echo $results['Project_ID'];?>
-					<?php echo $results['Title'];?></h4>
-                    <?php echo $results['Progress'];?><br>
-					<?php echo "More Information";?>
-                    <?php }?>
-</div>
-        <div class="thumbnailOT">
-          <?php echo "<h4>Project 1 Title</h4>" ?>
-          <p class="tag">Status: On Track</p>
-          <p class="tag">More Information</p> <!-- add link to project page here -->
-        </div>
-        <div class="thumbnailIP">
-          <h4>Project 2 Title</h4>
-          <p class="tag">Status: In Progress</p>
-          <p class="tag">More Information</p> <!-- add link to project page here -->
-        </div>
-        <div class="thumbnailNOT">
-          <h4>Project 3 Title</h4>
-          <p class="tag">Status: Not On Track</p>
-          <p class="tag">More Information</p> <!-- add link to project page here -->
-        </div>
-        <div class="thumbnailIP">
-          <h4>Project 4 Title</h4>
-          <p class="tag">Status: </p>
-          <p class="tag">More Information</p> <!-- add link to project page here -->
-        </div>
-      </div>
-
-      <div class="gallery">
-        <div class="thumbnailIP">
-          <h4>Project 5 Title</h4>
-          <p class="tag">Status: </p>
-          <p class="tag">More Information</p> <!-- add link to project page here -->
-        </div>
-        <div class="thumbnailIP">
-          <h4>Project 6 Title</h4>
-          <p class="tag">Status: </p>
-          <p class="tag">More Information</p> <!-- add link to project page here -->
-        </div>
-        <div class="thumbnailIP">
-          <h4>Project 7 Title</h4>
-          <p class="tag">Status: </p>
-          <p class="tag">More Information</p> <!-- add link to project page here -->
-        </div>
-        <div class="thumbnailIP">
-          <h4>Project 8 Title</h4>
-          <p class="tag">Status: </p>
-          <p class="tag">More Information</p> <!-- add link to project page here -->
-        </div>
-      </div>
-
-      <div class="gallery">
-        <div class="thumbnailIP">
-          <h4>Project 9 Title</h4>
-          <p class="tag">Status: </p>
-          <p class="tag">More Information</p> <!-- add link to project page here -->
-        </div>
-        <div class="thumbnailIP">
-          <h4>Project 10 Title</h4>
-          <p class="tag">Status: </p>
-          <p class="tag">More Information</p> <!-- add link to project page here -->
-        </div>
-        <div class="thumbnailIP">
-          <h4>Project 11 Title</h4>
-          <p class="tag">Status: </p>
-          <p class="tag">More Information</p> <!-- add link to project page here -->
-        </div>
-        <div class="thumbnailIP">
-          <h4>Project 12 Title</h4>
-          <p class="tag">Status: </p>
-          <p class="tag">More Information</p> <!-- add link to project page here -->
-        </div>
-      </div>
-
-      <div class="gallery">
-        <div class="thumbnailIP">
-          <h4>Project 13 Title</h4>
-          <p class="tag">Status: </p>
-          <p class="tag">More Information</p> <!-- add link to project page here -->
-        </div>
-        <div class="thumbnailIP">
-          <h4>Project 14 Title</h4>
-          <p class="tag">Status: </p>
-          <p class="tag">More Information</p> <!-- add link to project page here -->
-        </div>
-        <div class="thumbnailIP">
-          <h4>Project 15 Title</h4>
-          <p class="tag">Status: </p>
-          <p class="tag">More Information</p> <!-- add link to project page here -->
-        </div>
-        <div class="thumbnailIP">
-          <h4>Project 16 Title</h4>
-          <p class="tag">Status: </p>
-          <p class="tag">More Information</p> <!-- add link to project page here -->
-        </div>
-      </div>
-
-      <div class="gallery">
-        <div class="thumbnailIP">
-          <h4>Project 17 Title</h4>
-          <p class="tag">Status: </p>
-          <p class="tag">More Information</p> <!-- add link to project page here -->
-        </div>
-        <div class="thumbnailIP">
-          <h4>Project 18 Title</h4>
-          <p class="tag">Status: </p>
-          <p class="tag">More Information</p> <!-- add link to project page here -->
-        </div>
-        <div class="thumbnailIP">
-          <h4>Project 19 Title</h4>
-          <p class="tag">Status: </p>
-          <p class="tag">More Information</p> <!-- add link to project page here -->
-        </div>
-        <div class="thumbnailIP">
-          <h4>Project 20 Title</h4>
-          <p class="tag">Status: </p>
-          <p class="tag">More Information</p> <!-- add link to project page here -->
-        </div>
-      </div>
-    </div>
+        <?php while (($results = mysqli_fetch_array($projects))) { ?>
+          <?php if ($results['Progress'] == '0' || $results['Progress'] == '1') : ?>
+            <div class="thumbnailOT">
+                <?php elseif ($results['Progress'] == '2') : ?>
+            <div class="thumbnailIP">
+              <?php elseif ($results['Progress'] == '3') : ?>
+            <div class="thumbnailNOT">
+              <?php else : ?>
+              <div class="thumbnailND">
+                <?php endif ?>
+                <div>
+                  <h4><?php echo $results['Title'] ?></h4>
+                      <?php echo '<br><strong>Project Number:</strong> ' . $results['Project_No'] ?>
+                      <?php echo '<br><strong>Project Year:</strong> ' . $results['Year'] ?>
+                      <?php echo '<br><strong>Progress Status:</strong>(demo) ' . $results['Progress'] ?>
+                      <?php echo '<br><strong>Last Feedback:</strong><br>' . $results['Feedback'] ?>
+                      </div>
+                    </div>
+                        <?php
+                    } ?>
+            </div>
+          </div>
   </section>
 
   <!-- FOOTER -->
@@ -176,7 +80,7 @@
 
   </div>
   <script>
-    $(function () {
+    $(function() {
       $("#foot-placeholder").load("footer.html");
     });
   </script>

@@ -19,7 +19,7 @@
     <?php
     include 'php/dbconfig.php';
     $sql = "SELECT Project_ID, Title FROM Project;";
-    $project_title = mysqli_query($conn, $sql);
+    $projects = mysqli_query($conn, $sql);
     ?>
 
     <!-- NAVIGATION -->
@@ -41,7 +41,7 @@
                 <select name="project-id" id="project-list" class="dropbtn" required>
                     <div class="dropdown-content">
                         <option>Select Project</option>
-                        <?php while ($results = mysqli_fetch_array($project_title)) { ?>
+                        <?php while ($results = mysqli_fetch_array($projects)) { ?>
                             <option value="<?php echo $results['Project_ID']; ?>"><?php echo $results['Title']; ?>
                         </option>
                         <?php 
