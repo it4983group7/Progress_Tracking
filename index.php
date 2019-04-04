@@ -20,15 +20,13 @@
 
   <?php
   include 'php/dbconfig.php';
-  $projectName = "SELECT project.Project_ID, project.Title, sponsor_update.Progress FROM project INNER JOIN sponsor_update ON project.Project_ID=sponsor_update.Project_ID";
 
   $sql = "SELECT Project.Year, Project.Project_No, Project.Project_ID, Project.Title, Sponsor_Update.Progress, Sponsor_Update.Feedback FROM Project LEFT JOIN Sponsor_Update ON Project.Project_ID=Sponsor_Update.Project_ID AND Sponsor_Update.Sponsor_Update_ID IN (SELECT MAX(Sponsor_Update_ID) FROM Sponsor_Update GROUP BY Sponsor_Update_ID AND Project.Project_ID=Sponsor_Update.Project_ID);";
 
   $projects = mysqli_query($conn, $sql);
-  $projectStatus = "SELECT Sponsor_Update_ID, Progress FROM sponsor_update";
-  $projectProgress = mysqli_query($conn, $projectStatus);
 
   ?>
+  
   <!-- NAVIGATION -->
   <div id="nav-placeholder">
 
@@ -62,15 +60,18 @@
               <div class="thumbnailND">
                 <?php endif ?>
                 <div>
-                  <h4><?php echo $results['Title'] ?></h4>
-                      <?php echo '<br><strong>Project Number:</strong> ' . $results['Project_No'] ?>
-                      <?php echo '<br><strong>Project Year:</strong> ' . $results['Year'] ?>
-                      <?php echo '<br><strong>Progress Status:</strong>(demo) ' . $results['Progress'] ?>
-                      <?php echo '<br><strong>Last Feedback:</strong><br>' . $results['Feedback'] ?>
+                  <a href="project.php?projectID=<?php echo $results['Project_ID'];?>" class="project_link">
+
+                    <h4><?php echo $results['Title'] ?></h4>
+                        <?php echo '<br><strong>Project Number:</strong> ' . $results['Project_No'] ?>
+                        <?php echo '<br><strong>Project Year:</strong> ' . $results['Year'] ?>
+                        <?php echo '<br><strong>Progress Status:</strong>(demo) ' . $results['Progress'] ?>
+                        <?php echo '<br><strong>Last Feedback:</strong><br>' . $results['Feedback'] ?>
+                        </a>
                       </div>
                     </div>
                         <?php
-                    } ?>
+                      } ?>
             </div>
           </div>
   </section>

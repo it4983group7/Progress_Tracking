@@ -272,3 +272,40 @@ label {
 .required {
   color: red;
 }
+
+.project_link {
+  color: black;
+}
+
+.project_link:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+.project_link:link {
+  color: inherit;
+}
+
+.project_link:visited {
+  color: inherit;
+}
+
+.project_link:active {
+  color: inherit;
+}
+
+.feedback-table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.feedback-table td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+.feedback-table tr:nth-child(even) {
+  background-color: #dddddd;
+}
