@@ -68,7 +68,7 @@
             <input type="radio" name="responsiveness" value="2">Needs improvement <br>
 
             <h3>General feedback such as details on the questions above, comments on a specific student or event, suggestions on improving the process, etc. Basically, anything that you think can improve your experience on this capstone project.</h3>
-            <input type="text" name="feedback"><br>
+            <input type="text" name="feedback" style="width=100%;"><br>
             <input type="submit">
         </form>
     </div>
