@@ -34,9 +34,9 @@
 
     <!-- Update Form -->
     <div class="main">
-        <h2>Sponsor Update Form</h2>
+        <h2>Student Update Form</h2>
         <p class="required">* required field</p><br>
-        <form action="php/sponsor_update_form.php" method="POST">
+        <form action="php/student_update_form.php" method="POST">
             <div class="dropdown">
                 <select name="project-id" id="project-list" class="dropbtn" required>
                     <div class="dropdown-content">
@@ -51,7 +51,7 @@
                 <span class="required">*</span>
             </div>
             <br>
-            Sponsor ID: <input type="text" name="sponsor-id" required>
+            Student ID: <input type="text" name="sponsor-id" required>
             <span class="required">*</span><br>
 
             <h3>What do you think of the project progress?</h3>
@@ -61,14 +61,8 @@
             <input type="radio" name="progress" value="2">Behind schedule<br>
             <input type="radio" name="progress" value="3">Severely behind schedule<br>
 
-            <h3>What do you think of the student team's responsiveness?</h3><br>
-            <span class="required">*</span><br>
-            <input type="radio" name="responsiveness" value="0" required>Lightning fast <br>
-            <input type="radio" name="responsiveness" value="1">Right on par <br>
-            <input type="radio" name="responsiveness" value="2">Needs improvement <br>
-
-            <h3>General feedback such as details on the questions above, comments on a specific student or event, suggestions on improving the process, etc. Basically, anything that you think can improve your experience on this capstone project.</h3>
-            <input type="text" name="feedback" style="width=100%;" required><br>
+            <h3>Use a paragraph or two to summarize the progress of the project including what your team have done, what your team plan to do, any matters with project owner and teamwork, or any other issues need my attention.</h3>
+            <input type="text" name="summary" style="width=100%;" required autocomplete="off"><br>
             <input type="submit">
         </form>
     </div>

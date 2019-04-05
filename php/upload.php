@@ -111,19 +111,12 @@ function processData($target_file)
         }
         $check = 0;
     }
-    // var_dump($sheetData);
 }
 function connectDB($sql)
 {
     echo "<br><br>";
-    $servername = 'localhost';
-    $username = 'web';
-    $password = 'Capst0n3!';
-    $dbname = 'capstone';
-
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
+	include 'php/dbconfig.php';
+    
     // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);

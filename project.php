@@ -21,17 +21,47 @@
 	<?php
 	include 'php/dbconfig.php';
 
+	// Check connection
+	if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
+	}
+
 	$projectID = $_GET['projectID'];
 
 	$pro_sql = "SELECT * FROM Project WHERE Project_ID LIKE $projectID;";
-	$spons_sql = "SELECT * FROM Sponsor_Update WHERE Project_ID LIKE $projectID;";
-	$stu_sql = "SELECT * FROM Student_Update WHERE Project_ID LIKE $projectID;";
+	$spons_sql = "SELECT * FROM Sponsor_Update WHERE Project_ID LIKE $projectID ORDER BY Date DESC;";
+	$stu_sql = "SELECT * FROM Student_Update WHERE Project_ID LIKE $projectID ORDER BY Date DESC;";
 
 	$projects = mysqli_query($conn, $pro_sql);
 	$spons_upd = mysqli_query($conn, $spons_sql);
 	$stu_upd = mysqli_query($conn, $stu_sql);
-	
+
 	$pro_results = mysqli_fetch_array($projects);
+
+	function getPHRStatus($val)
+	{
+		if ($val == '0') {
+			return "Ahead of schedule";
+		} elseif ($val == '1') {
+			return "On schedule";
+		} elseif ($val == '2') {
+			return "Behind schedule";
+		} elseif ($val == '3') {
+			return "Severely behind schedule";
+		}
+		return "Error getting status";
+	}
+
+	function getRHRStatus($val) {
+		if ($val == '0') {
+			return "Lighting fast";
+		} elseif ($val == '1') {
+			return "Right on par";
+		} elseif ($val == '2') {
+			return "Needs improvement";
+		}
+		return "Error getting status";
+	}
 	?>
 
 	<!-- NAVIGATION -->
@@ -89,16 +119,16 @@
 					<th>Feedback</th>
 				</tr>
 				<?php while ($spons_results = mysqli_fetch_array($spons_upd)) { ?>
-																				<tr>
-																					<td><?php echo $spons_results['Sponsor_ID'] ?></td>
-																				<td><?php echo $spons_results['Date'] ?></td>
-																				<td><?php echo $spons_results['Progress'] ?></td>
-																				<td><?php echo $spons_results['Responsiveness'] ?></td>
-																				<td><?php echo $spons_results['Feedback'] ?></td>
-																				</tr>
-																																			<?php
-																			}
-																			?>
+												<tr>
+													<td><?php echo $spons_results['Sponsor_ID'] ?></td>
+												<td><?php echo $spons_results['Date'] ?></td>
+												<td><?php echo getPHRStatus($spons_results['Progress']) ?></td>
+												<td><?php echo getRHRStatus($spons_results['Responsiveness']) ?></td>
+												<td><?php echo $spons_results['Feedback'] ?></td>
+												</tr>
+																			<?php
+											}
+											?>
 			</table>
 		</div>
 	</section>
@@ -106,7 +136,7 @@
 	<!-- Student Updates Section -->
 	<section class="prjmain">
 		<div>
-		<table class="feedback-table">
+			<table class="feedback-table">
 				<tr>
 					<th>Student Updates</th>
 				</tr>
@@ -116,16 +146,16 @@
 					<th>Progress</th>
 					<th>Summary</th>
 				</tr>
-				<?php while ($stu_results = mysqli_fetch_array($spons_upd)) { ?>
-																				<tr>
-																					<td><?php echo $stu_results['Sponsor_ID'] ?></td>
-																				<td><?php echo $stu_results['Date'] ?></td>
-																				<td><?php echo $stu_results['Progress'] ?></td>
-																				<td><?php echo $stu_results['Summary'] ?></td>
-																				</tr>
-																																			<?php
-																			}
-																			?>
+				<?php while ($stu_results = mysqli_fetch_array($stu_upd)) { ?>
+												<tr>
+													<td><?php echo $stu_results['Student_ID'] ?></td>
+												<td><?php echo $stu_results['Date'] ?></td>
+												<td><?php echo getPHRStatus($stu_results['Progress']); ?></td>
+												<td><?php echo $stu_results['Summary'] ?></td>
+												</tr>
+																			<?php
+											}
+											?>
 			</table>
 		</div>
 	</section>

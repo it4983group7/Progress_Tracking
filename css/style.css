@@ -32,7 +32,7 @@ body {
 .gallery {
 	clear: both;
 	display: inline-block;
-	width: 100%;
+  width: 100%;
 	padding-bottom: 3px;
 	padding-top: -5px;
 	margin-top: 0px;
@@ -206,6 +206,7 @@ label {
 
   #cms {
     font-size: 200%;
+    padding-bottom: 5px;
   }
 
   #dept {
