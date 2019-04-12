@@ -82,7 +82,7 @@ function processData($target_file)
                 } elseif ($j == 'D') {
                     $pro_org = $subArr[$j];
                 } elseif ($j == 'E') {
-                    $pro_desc = preg_replace("\"","",$subArr[$j]);
+                    $pro_desc = str_replace("\"","",$subArr[$j]);
                 } elseif ($j == 'F') {
                     $pro_skill_req = $subArr[$j];
                 } elseif ($j == 'G') {
@@ -115,7 +115,10 @@ function processData($target_file)
 function connectDB($sql)
 {
     echo "<br><br>";
-	include 'php/dbconfig.php';
+    // Windows
+    include 'php/dbconfig.php';
+    // Linux
+	include 'dbconfig.php';
     
     // Check connection
     if ($conn->connect_error) {
