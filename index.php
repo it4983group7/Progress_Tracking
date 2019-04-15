@@ -68,13 +68,13 @@
       <div class="gallery">
         <?php while (($results = mysqli_fetch_array($projects))) { ?>
           <?php if ($results['Progress'] == '0' || $results['Progress'] == '1') : ?>
-            <div class="thumbnailOT">
+            <div class="thumbnail thumbnailOT">
                 <?php elseif ($results['Progress'] == '2') : ?>
-            <div class="thumbnailIP">
+            <div class="thumbnail thumbnailIP">
               <?php elseif ($results['Progress'] == '3') : ?>
-            <div class="thumbnailNOT">
+            <div class="thumbnail thumbnailNOT">
               <?php else : ?>
-              <div class="thumbnailND">
+              <div class="thumbnail thumbnailND">
                 <?php endif ?>
                 <div>
                   <a href="project.php?projectID=<?php echo $results['Project_ID']; ?>" class="project_link">
